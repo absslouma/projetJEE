@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<title>Administration</title>
+<link href="css/style.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<f:view>
+		<ui:insert name="menu">
+			<div id="menu">
+				<ul>
+					<li>
+						<h:form>
+							<h:commandLink action="listEmploye" rendered="#{checkinCtr.type=='Administrateur'}">Employee management</h:commandLink>
+							<h:commandLink action="editEmploye" rendered="#{checkinCtr.type=='Employe'}">My profil</h:commandLink>
+						</h:form>
+					</li>
+					<li>
+					<h:form>
+						<h:commandLink action="listConge">Leave Management</h:commandLink>
+					</h:form>
+					</li>
+					<li>
+					<h:form>
+						<h:commandLink action="#{checkinCtr.doCheckout}">Logout</h:commandLink>
+					</h:form>
+					</li>
+				</ul>
+			
+			</div>
+		</ui:insert>
+		<div id="container">
+			<ui:insert name="content"></ui:insert>
+		</div>
+	</f:view>
+</body>
+</html>

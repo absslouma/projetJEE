@@ -1,0 +1,52 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+<ui:composition template="/includes/template.xhtml">
+
+	<ui:define name="content">
+	<h1>List of employees</h1>
+		<h:dataTable border="0" cellpadding="0" cellspacing="0" value="#{lifeCycleCtr.employes}" var="c">
+			<h:column >
+				<f:facet name="header">
+					<h:outputText value="Employee User Name"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{c.login}"></h:outputText>
+			</h:column>
+			
+			<h:column >
+				<f:facet name="header">
+					<h:outputText value="Employee Name"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{c.nomEmploye} #{c.prenomEmploye}" />
+			</h:column>
+			
+			<h:column >
+				<f:facet name="header">
+					<h:outputText value="Fonction"></h:outputText>
+				</f:facet>
+				<h:outputText value="#{c.fonction}" />
+			</h:column>
+			
+			<h:column >
+				<f:facet name="header">
+					<h:outputText value="Action"></h:outputText>
+				</f:facet>
+				<h:form>
+					<h:commandLink action="edit">
+						<h:graphicImage value="/images/edit.png" alt="Edit" title="Edit"></h:graphicImage>
+					</h:commandLink>
+				</h:form><nobr/>
+				<h:form>
+					<h:commandLink  action="del">
+						<h:graphicImage value="/images/del.gif" alt="Delete" title="Delete"></h:graphicImage>
+					</h:commandLink>
+				</h:form>
+			</h:column>
+			
+		</h:dataTable>
+
+	</ui:define>
+</ui:composition>
+</html>
